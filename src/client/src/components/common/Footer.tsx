@@ -1,110 +1,86 @@
-import { Link } from "react-router-dom"
+import { Film, Tv, Video } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { toast } from "sonner"
-import { Bug, Film, Github, Info, Tv } from "lucide-react"
-import { t } from "i18next"
+import { Link } from "react-router-dom"
+
+const socialLinks = [
+    { label: "Live", icon: Video },
+    { label: "Instagram", icon: Film },
+    { label: "TV", icon: Tv },
+]
 
 export default function Footer() {
+    const currentYear = new Date().getFullYear()
+
     return (
-        <footer id="footer" className="mt-8 rounded-b-2xl border-t border-border py-4 transition-all duration-300 ease-in-out md:py-12">
-            <div className="px-4 md:px-6">
-                <div className="mb-6 grid grid-cols-2 gap-6 md:mb-8 md:grid-cols-3 md:gap-8">
-                    {/* Brand */}
-                    <div className="col-span-2 md:col-span-1">
-                        <div className="mb-3 flex items-center gap-2 md:mb-4">
-                            <img src="/favicon.svg" alt="Logo" width={40} height={40} />
-                            <span className="text-lg font-bold text-primary md:text-xl">{t("projectName")}</span>
+        <footer className="relative mt-16 border-t border-white/10 bg-black text-zinc-300">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_120%_at_50%_0%,rgba(255,68,0,0.18),transparent_60%)]" />
+
+            <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-5 lg:px-8">
+                <div className="lg:col-span-2">
+                    <div>
+                    <Link to="/" className="group inline-flex items-center gap-2">
+                            <span className="inline-flex size-10 items-center justify-center overflow-hidden rounded-2xl shadow-lg shadow-red-800/30 transition-transform duration-300 group-hover:scale-105">
+                                <img src="/icon512_rounded.png" alt="CinePro logo" className="size-full object-cover" />
+                            </span>
+                            <span className="text-2xl font-semibold tracking-tight text-white">CinePro/ui</span>
+                        </Link>
                         </div>
-                        <p className="text-xs text-muted-foreground md:text-sm">{t("footer.tagline")}</p>
-                    </div>
-
-                    {/* Pages */}
-                    <div>
-                        <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold md:mb-4 md:text-base">Pages</h3>
-                        <ul className="space-y-1 md:space-y-2">
-                            <li>
-                                <Link to="/movies" className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground md:text-sm" target="_self" rel="noopener">
-                                    <Film className="h-4 w-4" /> {t("common.movie.plural")}
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/shows" className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground md:text-sm" target="_self" rel="noopener">
-                                    <Tv className="h-4 w-4" /> {t("common.tvShow.plural")}
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/disclaimer" className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground md:text-sm" target="_self" rel="noopener">
-                                    <Info className="h-4 w-4" /> {t("common.disclaimer.label")}
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Links */}
-                    <div>
-                        <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold md:mb-4 md:text-base">Links</h3>
-                        <ul className="space-y-1 md:space-y-2">
-                            <li>
-                                <Link
-                                    to={t("common.opensource.git-url")}
-                                    className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground md:text-sm"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    <Github className="h-4 w-4" /> {t("footer.links.git")}
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to={t("common.opensource.git-url") + "/blob/main/README.md"}
-                                    className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground md:text-sm"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    <Info className="h-4 w-4" /> {t("footer.links.about")}
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to={t("common.opensource.git-url") + "/issues"}
-                                    className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground md:text-sm"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    <Bug className="h-4 w-4" />
-                                    {t("footer.links.report-issue")}
-                                </Link>
-                            </li>
-                        </ul>
+                    <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-400">
+                        Watch blockbuster movies, binge-worthy series, and live channels all in one
+                        place.
+                    </p>
+                    <div className="mt-5 flex items-center gap-2">
+                        {socialLinks.map(({ label, icon: Icon }) => (
+                            <Button
+                                key={label}
+                                asChild
+                                variant="outline"
+                                size="icon"
+                                className="rounded-full border-white/10 bg-zinc-900/70 text-zinc-300 hover:border-red-500/50 hover:bg-zinc-900/90 hover:text-white"
+                                aria-label={label}
+                            >
+                                <a href="#" aria-label={label} title={label}>
+                                    <Icon className="size-4" />
+                                </a>
+                            </Button>
+                        ))}
                     </div>
                 </div>
 
-                <Separator className="mb-6 md:mb-8" />
+            </div>
 
-                <div className="flex flex-col items-center justify-between md:flex-row">
-                    <p className="text-center text-xs text-muted-foreground md:text-left md:text-sm">
-                        © {new Date().getFullYear()} {t("projectName")} by{" "}
-                        <Link to={t("common.opensource.git-url")} className="underline" target="_blank" rel="noopener">
-                            {t("authors")}
-                        </Link>
-                        . All rights reserved.
-                    </p>
+            <Separator className="bg-white/10" />
 
-                    <div className="mt-4 flex flex-wrap justify-center gap-4 md:mt-0">
-                        <Link
-                            to="#footer"
-                            className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground md:text-sm"
-                            onClick={(e) => {
-                                e.preventDefault()
-                                toast.success(t("footer.cookie-policy.value"))
-                            }}
-                        >
-                            <Info className="h-4 w-4" />
-                            {t("footer.cookie-policy.label")}
-                        </Link>
-                    </div>
+            <div className="relative py-5">
+                <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 text-xs text-zinc-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+                    <p>Copyright {currentYear} CinePro, Inc. All rights reserved.</p>
+                    <p>Built for movie nights and weekend marathons.</p>
                 </div>
             </div>
         </footer>
+    )
+}
+
+type FooterColumnProps = {
+    title: string
+    links: string[]
+}
+
+function FooterColumn({ title, links }: FooterColumnProps) {
+    return (
+        <div>
+            <h3 className="mb-3 text-sm font-semibold tracking-wide text-white">{title}</h3>
+            <ul className="space-y-2 text-sm text-zinc-400">
+                {links.map((link) => (
+                    <li key={link}>
+                        <a href="#" className="transition hover:text-white">
+                            {link}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
     )
 }
