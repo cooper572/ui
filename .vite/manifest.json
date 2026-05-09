@@ -31,30 +31,30 @@
     "file": "assets/manrope-vietnamese-wght-normal-usUDDRr7.woff2",
     "src": "../../node_modules/@fontsource-variable/manrope/files/manrope-vietnamese-wght-normal.woff2"
   },
-  "_TypedRails-DljWZhgP.js": {
-    "file": "assets/TypedRails-DljWZhgP.js",
+  "_TypedRails-FSclrbgd.js": {
+    "file": "assets/TypedRails-FSclrbgd.js",
     "name": "TypedRails",
     "imports": [
       "index.html",
-      "_card-4snjPlE1.js"
+      "_card-CiCE2xxx.js"
     ]
   },
-  "_card-4snjPlE1.js": {
-    "file": "assets/card-4snjPlE1.js",
+  "_card-CiCE2xxx.js": {
+    "file": "assets/card-CiCE2xxx.js",
     "name": "card",
     "imports": [
       "index.html"
     ]
   },
-  "_select-BsEDyg6F.js": {
-    "file": "assets/select-BsEDyg6F.js",
+  "_select-TToieYhW.js": {
+    "file": "assets/select-TToieYhW.js",
     "name": "select",
     "imports": [
       "index.html"
     ]
   },
   "index.html": {
-    "file": "assets/index-C857JLHv.js",
+    "file": "assets/index-CqDrNtmE.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -81,7 +81,7 @@
     ]
   },
   "src/pages/404/NotFound.tsx": {
-    "file": "assets/NotFound-B6wZyIS4.js",
+    "file": "assets/NotFound-Pp00GYm2.js",
     "name": "NotFound",
     "src": "src/pages/404/NotFound.tsx",
     "isDynamicEntry": true,
@@ -90,7 +90,7 @@
     ]
   },
   "src/pages/disclaimer/Disclaimer.tsx": {
-    "file": "assets/Disclaimer-fksVUubc.js",
+    "file": "assets/Disclaimer-_EZyAXeq.js",
     "name": "Disclaimer",
     "src": "src/pages/disclaimer/Disclaimer.tsx",
     "isDynamicEntry": true,
@@ -99,49 +99,49 @@
     ]
   },
   "src/pages/home/Home.tsx": {
-    "file": "assets/Home-g442tsZU.js",
+    "file": "assets/Home-CHnxFRq2.js",
     "name": "Home",
     "src": "src/pages/home/Home.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_TypedRails-DljWZhgP.js",
-      "_card-4snjPlE1.js"
+      "_TypedRails-FSclrbgd.js",
+      "_card-CiCE2xxx.js"
     ]
   },
   "src/pages/movies/Movies.tsx": {
-    "file": "assets/Movies-jMyCn1-x.js",
+    "file": "assets/Movies-BscywVoz.js",
     "name": "Movies",
     "src": "src/pages/movies/Movies.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_TypedRails-DljWZhgP.js",
-      "_select-BsEDyg6F.js",
-      "_card-4snjPlE1.js"
+      "_TypedRails-FSclrbgd.js",
+      "_select-TToieYhW.js",
+      "_card-CiCE2xxx.js"
     ]
   },
   "src/pages/settings/Settings.tsx": {
-    "file": "assets/Settings-BGoJlArk.js",
+    "file": "assets/Settings-CAvBNlWu.js",
     "name": "Settings",
     "src": "src/pages/settings/Settings.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_card-4snjPlE1.js",
-      "_select-BsEDyg6F.js"
+      "_card-CiCE2xxx.js",
+      "_select-TToieYhW.js"
     ]
   },
   "src/pages/shows/Shows.tsx": {
-    "file": "assets/Shows-voLdlVhz.js",
+    "file": "assets/Shows-C3n-NNFr.js",
     "name": "Shows",
     "src": "src/pages/shows/Shows.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_TypedRails-DljWZhgP.js",
-      "_select-BsEDyg6F.js",
-      "_card-4snjPlE1.js"
+      "_TypedRails-FSclrbgd.js",
+      "_select-TToieYhW.js",
+      "_card-CiCE2xxx.js"
     ]
   }
 }
