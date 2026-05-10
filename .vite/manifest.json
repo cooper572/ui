@@ -31,36 +31,53 @@
     "file": "assets/manrope-vietnamese-wght-normal-usUDDRr7.woff2",
     "src": "../../node_modules/@fontsource-variable/manrope/files/manrope-vietnamese-wght-normal.woff2"
   },
-  "_TypedRails-CrLhqtes.js": {
-    "file": "assets/TypedRails-CrLhqtes.js",
+  "_MediaWatchPage-D5u1cYfb.js": {
+    "file": "assets/MediaWatchPage-D5u1cYfb.js",
+    "name": "MediaWatchPage",
+    "imports": [
+      "index.html",
+      "_use-omss-CUl3OCPC.js"
+    ]
+  },
+  "_TypedRails-DCK98AL6.js": {
+    "file": "assets/TypedRails-DCK98AL6.js",
     "name": "TypedRails",
     "imports": [
       "index.html",
-      "_card-_SUMty-C.js"
+      "_card-DhAraqGn.js"
     ]
   },
-  "_card-_SUMty-C.js": {
-    "file": "assets/card-_SUMty-C.js",
+  "_card-DhAraqGn.js": {
+    "file": "assets/card-DhAraqGn.js",
     "name": "card",
     "imports": [
       "index.html"
     ]
   },
+  "_use-omss-CUl3OCPC.js": {
+    "file": "assets/use-omss-CUl3OCPC.js",
+    "name": "use-omss",
+    "imports": [
+      "index.html"
+    ]
+  },
   "index.html": {
-    "file": "assets/index-CcZGU6bM.js",
+    "file": "assets/index-Dzetcokc.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
       "src/pages/home/Home.tsx",
       "src/pages/movies/Movies.tsx",
+      "src/pages/watch/movie/WatchMoviePage.tsx",
+      "src/pages/watch/tv/WatchTvPage.tsx",
       "src/pages/shows/Shows.tsx",
       "src/pages/404/NotFound.tsx",
       "src/pages/settings/Settings.tsx",
       "src/pages/disclaimer/Disclaimer.tsx"
     ],
     "css": [
-      "assets/index-DX6-gx-n.css"
+      "assets/index-ZM6ju5c1.css"
     ],
     "assets": [
       "assets/geist-cyrillic-wght-normal-CHSlOQsW.woff2",
@@ -74,7 +91,7 @@
     ]
   },
   "src/pages/404/NotFound.tsx": {
-    "file": "assets/NotFound-DwBGLi7b.js",
+    "file": "assets/NotFound-DyRrro1v.js",
     "name": "NotFound",
     "src": "src/pages/404/NotFound.tsx",
     "isDynamicEntry": true,
@@ -83,7 +100,7 @@
     ]
   },
   "src/pages/disclaimer/Disclaimer.tsx": {
-    "file": "assets/Disclaimer-a_pmFBJi.js",
+    "file": "assets/Disclaimer-CtLn1q7C.js",
     "name": "Disclaimer",
     "src": "src/pages/disclaimer/Disclaimer.tsx",
     "isDynamicEntry": true,
@@ -92,46 +109,69 @@
     ]
   },
   "src/pages/home/Home.tsx": {
-    "file": "assets/Home-DGcMy0A6.js",
+    "file": "assets/Home-CYpjpq_-.js",
     "name": "Home",
     "src": "src/pages/home/Home.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_TypedRails-CrLhqtes.js",
-      "_card-_SUMty-C.js"
+      "_TypedRails-DCK98AL6.js",
+      "_card-DhAraqGn.js"
     ]
   },
   "src/pages/movies/Movies.tsx": {
-    "file": "assets/Movies-CbLM1Vnz.js",
+    "file": "assets/Movies-BpRQTWN_.js",
     "name": "Movies",
     "src": "src/pages/movies/Movies.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_TypedRails-CrLhqtes.js",
-      "_card-_SUMty-C.js"
+      "_TypedRails-DCK98AL6.js",
+      "_card-DhAraqGn.js"
     ]
   },
   "src/pages/settings/Settings.tsx": {
-    "file": "assets/Settings-cqi5GFtX.js",
+    "file": "assets/Settings-DC1XQB4I.js",
     "name": "Settings",
     "src": "src/pages/settings/Settings.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_card-_SUMty-C.js"
+      "_card-DhAraqGn.js",
+      "_use-omss-CUl3OCPC.js"
     ]
   },
   "src/pages/shows/Shows.tsx": {
-    "file": "assets/Shows-D1070wsk.js",
+    "file": "assets/Shows-B_gTOBY5.js",
     "name": "Shows",
     "src": "src/pages/shows/Shows.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_TypedRails-CrLhqtes.js",
-      "_card-_SUMty-C.js"
+      "_TypedRails-DCK98AL6.js",
+      "_card-DhAraqGn.js"
+    ]
+  },
+  "src/pages/watch/movie/WatchMoviePage.tsx": {
+    "file": "assets/WatchMoviePage-DdZnOuB0.js",
+    "name": "WatchMoviePage",
+    "src": "src/pages/watch/movie/WatchMoviePage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html",
+      "_MediaWatchPage-D5u1cYfb.js",
+      "_use-omss-CUl3OCPC.js"
+    ]
+  },
+  "src/pages/watch/tv/WatchTvPage.tsx": {
+    "file": "assets/WatchTvPage-YORE6I6v.js",
+    "name": "WatchTvPage",
+    "src": "src/pages/watch/tv/WatchTvPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html",
+      "_MediaWatchPage-D5u1cYfb.js",
+      "_use-omss-CUl3OCPC.js"
     ]
   }
 }
