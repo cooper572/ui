@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom"
 import { Separator } from "@/components/ui/separator"
 import { toast } from "sonner"
-<<<<<<< HEAD
-import { Film, Info, Tv } from "lucide-react"
-import { t } from "i18next"
-=======
 import { Bug, Film, Github, Info, Tv } from "lucide-react"
->>>>>>> 7528011bf9cfac50ca2d9355f3ef9745299cc7ef
 import { Button } from "@/components/ui/button"
 import { useTranslation } from "react-i18next"
 
@@ -20,12 +15,8 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="col-span-2 md:col-span-1">
                         <div className="mb-3 flex items-center gap-2 md:mb-4">
-<<<<<<< HEAD
-                            <img src="/logo.png" alt="Logo" width={150} height={150} />
-=======
                             <img src="/favicon.svg" alt="Logo" width={40} height={40} />
                             <span className="text-lg font-bold text-primary md:text-xl">{t("common:projectName")}</span>
->>>>>>> 7528011bf9cfac50ca2d9355f3ef9745299cc7ef
                         </div>
                         <p className="text-xs text-muted-foreground md:text-sm">{t("tagline")}</p>
                     </div>
@@ -52,9 +43,6 @@ export default function Footer() {
                         </ul>
                     </div>
 
-<<<<<<< HEAD
-                    {/* Links removed per request */}
-=======
                     {/* Links */}
                     <div>
                         <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold md:mb-4 md:text-base">Links</h3>
@@ -92,22 +80,17 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
->>>>>>> 7528011bf9cfac50ca2d9355f3ef9745299cc7ef
                 </div>
 
                 <Separator className="mb-6 md:mb-8" />
 
                 <div className="flex flex-col items-center justify-between md:flex-row">
                     <p className="text-center text-xs text-muted-foreground md:text-left md:text-sm">
-<<<<<<< HEAD
-                        © {new Date().getFullYear()} {t("projectName")} by {t("authors")}. All rights reserved.
-=======
                         © {new Date().getFullYear()} {t("projectName")} by{" "}
                         <Link to={t("common:opensource.git-url")} className="underline" target="_blank" rel="noopener">
                             {t("authors")}
                         </Link>
                         . All rights reserved.
->>>>>>> 7528011bf9cfac50ca2d9355f3ef9745299cc7ef
                     </p>
 
                     <div className="z-1 mt-4 flex flex-wrap justify-center gap-4 md:mt-0">

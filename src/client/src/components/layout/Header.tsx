@@ -23,11 +23,7 @@ export default function Header() {
                             <span className="inline-flex h-8 w-auto items-center justify-center overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
                                 <img src="/logo.png" alt="Pandora logo" className="h-full w-auto object-contain" />
                             </span>
-<<<<<<< HEAD
-=======
-
                             <span className="text-2xl font-semibold tracking-tight text-primary-foreground">{t("common:projectName")}</span>
->>>>>>> 7528011bf9cfac50ca2d9355f3ef9745299cc7ef
                         </Link>
                         {!isMobile && <SidebarTrigger />}
                     </div>

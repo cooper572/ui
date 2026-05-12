@@ -69,56 +69,24 @@ export default function Settings() {
             >
                 {/* Tabs header */}
                 <TabsList variant="line">
-<<<<<<< HEAD
                     <TabsTrigger value="general">{t("settingsPage.general.title")}</TabsTrigger>
                     <TabsTrigger value="history">{t("settingsPage.tabs.history")}</TabsTrigger>
                     <TabsTrigger value="playback">{t("settingsPage.tabs.playback")}</TabsTrigger>
-                    
-=======
-                    <TabsTrigger value="general">{t("general.title")}</TabsTrigger>
-                    <TabsTrigger value="history">{t("tabs.history")}</TabsTrigger>
-                    <TabsTrigger value="playback">{t("tabs.playback")}</TabsTrigger>
-                    <TabsTrigger value="omss">{t("tabs.omss")}</TabsTrigger>
-                    <TabsTrigger value="tmdb">{t("tabs.tmdb")}</TabsTrigger>
->>>>>>> 7528011bf9cfac50ca2d9355f3ef9745299cc7ef
                 </TabsList>
 
                 {/* ---------------- GENERAL ---------------- */}
                 <TabsContent value="general">
                     <Card>
                         <CardHeader>
-<<<<<<< HEAD
                             <CardTitle>{t("settingsPage.general.title")}</CardTitle>
                             <CardDescription>{t("settingsPage.general.description")}</CardDescription>
-                            
-=======
-                            <CardTitle>{t("general.title")}</CardTitle>
-                            <CardDescription>{t("general.description")}</CardDescription>
-                            <CardAction>
-                                <Button asChild>
-                                    <Link to={t("common:opensource.git-url")} target="_blank" rel="noopener noreferrer">
-                                        <Star />
-                                        <span className="ml-1 hidden sm:inline">
-                                            {t("header:githubButton", {
-                                                platform: t("common:opensource.git-platform"),
-                                            })}
-                                        </span>
-                                    </Link>
-                                </Button>
-                            </CardAction>
->>>>>>> 7528011bf9cfac50ca2d9355f3ef9745299cc7ef
                         </CardHeader>
 
                         <CardContent className="space-y-6">
                             <div className="mt-3 flex justify-between">
                                 <div>
-<<<<<<< HEAD
                                     <Label>{t("settingsPage.general.language.cardlabel")}</Label>
                                     <span className="flex pt-1 text-muted-foreground">{t("settingsPage.general.language.info")}</span>
-=======
-                                    <Label>{t("general.language.cardlabel")}</Label>
-                                    <span className="flex pt-1 text-muted-foreground">{t("general.language.info", { gitUrl: t("common:opensource.git-url") })}</span>
->>>>>>> 7528011bf9cfac50ca2d9355f3ef9745299cc7ef
                                 </div>
 
                                 <Select value={locale} onValueChange={(value) => setLocale(value as SupportedLocales)}>
@@ -249,102 +217,6 @@ export default function Settings() {
                         </CardContent>
                     </Card>
                 </TabsContent>
-
-<<<<<<< HEAD
-                
-=======
-                {/* ---------------- OMSS ---------------- */}
-                <TabsContent value="omss">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>{t("omss.title", { coreName: t("common:coreName") })}</CardTitle>
-                            <CardDescription>{t("omss.description")}</CardDescription>
-                            <CardAction>
-                                {valid ? <Badge>{t("omss.connection.connected")}</Badge> : <Badge variant="destructive">{t("omss.connection.disconnected")}</Badge>}
-                            </CardAction>
-                        </CardHeader>
-
-                        <CardContent>
-                            <div className="space-y-2">
-                                <Label htmlFor="omss">{t("omss.label", { coreName: t("common:coreName") })}</Label>
-
-                                <span className="flex pt-1 text-muted-foreground">{t("omss.info")}</span>
-
-                                <Input id="omss" value={baseUrl} onChange={(e) => setBaseUrl(e.target.value)} placeholder="http://localhost:3000" />
-
-                                {!standalone && (
-                                    <Item className="border-dashed border-border">
-                                        <ItemHeader>
-                                            <H4 className="flex items-center gap-2">
-                                                <AlertTriangle />
-                                                {t("omss.note.title")}
-                                            </H4>
-                                        </ItemHeader>
-                                        <ItemContent>
-                                            <P>{t("omss.note.value")}</P>
-                                        </ItemContent>
-                                    </Item>
-                                )}
-                            </div>
-                        </CardContent>
-                    </Card>
-                </TabsContent>
-
-                {/* ---------------- TMDB ---------------- */}
-                <TabsContent value="tmdb">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>{t("tmdb.title")}</CardTitle>
-                            <CardDescription>{t("tmdb.description")}</CardDescription>
-                        </CardHeader>
-
-                        <CardContent className="space-y-4">
-                            <div className="space-y-2">
-                                <Label htmlFor="tmdb">{t("tmdb.apiKey")}</Label>
-                                <span className="flex pt-1 text-muted-foreground">{t("tmdb.info")}</span>
-                                <Input disabled id="tmdb" value={maskKey(tmdbApiKey, 10)} />
-                            </div>
-
-                            <div className="mt-3 flex flex-col justify-between md:flex-row">
-                                <div>
-                                    <Label>{t("tmdb.region.cardlabel")}</Label>
-
-                                    <span className="flex py-2 pr-0 text-muted-foreground md:pr-4">
-                                        {t("tmdb.region.info", {
-                                            projectName: t("common:projectName"),
-                                        })}
-                                    </span>
-                                </div>
-
-                                <Select
-                                    value={region}
-                                    onValueChange={(value) => {
-                                        setRegion(value as CountryISO3166_1)
-                                        cache?.clear()
-                                        location.reload()
-                                    }}
-                                >
-                                    <SelectTrigger className="w-full md:w-3/5">
-                                        <SelectValue placeholder={t("tmdb.region.placeholder")} />
-                                    </SelectTrigger>
-
-                                    <SelectContent>
-                                        <SelectGroup>
-                                            <SelectLabel>{t("tmdb.region.selectlabel")}</SelectLabel>
-                                        </SelectGroup>
-
-                                        {supportedRegions.map((r) => (
-                                            <SelectItem key={r.value} value={r.value}>
-                                                {r.label}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </TabsContent>
->>>>>>> 7528011bf9cfac50ca2d9355f3ef9745299cc7ef
             </Tabs>
         </section>
     )
