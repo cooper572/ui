@@ -1,0 +1,19 @@
+const PLAYER_EMBED_BASE_URL = "https://player-aj5.pages.dev/"
+
+export function buildPlayerEmbedUrl(id: string, season?: number, episode?: number) {
+    if (!PLAYER_EMBED_BASE_URL || PLAYER_EMBED_BASE_URL.includes("your-site.com")) {
+        throw new Error("Set PLAYER_EMBED_BASE_URL in src/client/src/components/player/embed-config.ts")
+    }
+
+    const url = new URL(PLAYER_EMBED_BASE_URL)
+    url.searchParams.set("id", id)
+
+    if (season !== undefined && episode !== undefined) {
+        url.searchParams.set("s", String(season))
+        url.searchParams.set("e", String(episode))
+    }
+
+    return url.toString()
+}
+
+export { PLAYER_EMBED_BASE_URL }

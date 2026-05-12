@@ -1,6 +1,5 @@
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { type ReactNode } from "react"
-import { OmssProvider } from "@/app/providers/omss-provider"
 import { TMDBProvider } from "@/app/providers/tmdb-provider"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { ThemeProvider } from "@/app/providers/theme-provider"
@@ -15,15 +14,13 @@ export default function AppProviders({ children }: { children: ReactNode }) {
         <ThemeProvider defaultTheme="dark" storageKey="app-theme">
             <TooltipProvider delayDuration={150}>
                 <TMDBProvider>
-                    <OmssProvider>
-                        <HistoryProvider>
-                            <SidebarProvider defaultOpen={false}>
-                                <BrowserRouter>
-                                    <MediaDrawerProvider>{children}</MediaDrawerProvider>
-                                </BrowserRouter>
-                            </SidebarProvider>
-                        </HistoryProvider>
-                    </OmssProvider>
+                    <HistoryProvider>
+                        <SidebarProvider defaultOpen={false}>
+                            <BrowserRouter>
+                                <MediaDrawerProvider>{children}</MediaDrawerProvider>
+                            </BrowserRouter>
+                        </SidebarProvider>
+                    </HistoryProvider>
                 </TMDBProvider>
             </TooltipProvider>
         </ThemeProvider>

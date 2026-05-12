@@ -10,21 +10,21 @@
     "display": "standalone",
     "display_override": ["window-controls-overlay", "standalone", "minimal-ui", "browser"],
     "orientation": "any",
-    "theme_color": "#ea383e",
+    "theme_color": "#a230fe",
     "background_color": "#141414",
     "categories": ["entertainment", "video", "streaming"],
-    "thumbnail": "favicon.svg",
+    "thumbnail": "icon.png",
     "icons": [
         {
-            "src": "favicon.svg",
-            "sizes": "any",
-            "type": "image/svg+xml",
+            "src": "icon.png",
+            "sizes": "247x274",
+            "type": "image/png",
             "purpose": "any"
         },
         {
-            "src": "favicon.svg",
-            "sizes": "any",
-            "type": "image/svg+xml",
+            "src": "icon.png",
+            "sizes": "247x274",
+            "type": "image/png",
             "purpose": "maskable"
         }
     ],
@@ -34,21 +34,21 @@
             "short_name": "Movies",
             "description": "Browse the latest movies",
             "url": "/movies",
-            "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+            "icons": [{ "src": "icon.png", "sizes": "247x274", "type": "image/png" }]
         },
         {
             "name": "Browse TV Shows",
             "short_name": "TV Shows",
             "description": "Browse TV series and episodes",
             "url": "/shows",
-            "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+            "icons": [{ "src": "icon.png", "sizes": "247x274", "type": "image/png" }]
         },
         {
             "name": "Settings",
             "short_name": "Settings",
             "description": "Configure CinePro/ui to your liking.",
             "url": "/settings",
-            "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+            "icons": [{ "src": "icon.png", "sizes": "247x274", "type": "image/png" }]
         }
     ],
     "prefer_related_applications": false,

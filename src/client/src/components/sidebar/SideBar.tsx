@@ -47,7 +47,7 @@ export default function SideBar() {
             {/* Header */}
             <SidebarHeader>
                 <div onClick={() => clickHandler("/")} className="flex cursor-pointer items-center gap-3 px-2 py-2">
-                    <img src="/favicon.svg" alt="Logo" className="h-10" />
+                    <img src="/ico.ico" alt="Logo" className="h-10" />
 
                     <h1 className="text-2xl font-bold">{t("projectName")}</h1>
 

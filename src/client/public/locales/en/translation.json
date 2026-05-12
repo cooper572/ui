@@ -1,7 +1,7 @@
 {
-    "projectName": "CinePro/ui",
-    "authors": "CinePro Foundation",
-    "coreName": "CinePro/Core",
+    "projectName": "Pandora",
+    "authors": "Pandora Team",
+    "coreName": "Pandora Core",
     "notFound": {
         "title": "404 - Mmmhh... Lost you are",
         "description": "Found, this page is not",
@@ -16,8 +16,6 @@
         "loading": "Loading",
         "welcome": "Welcome to {{projectName}}!",
         "opensource": {
-            "git-url": "https://github.com/cinepro-org/ui",
-            "git-platform": "GitHub"
         },
         "movie": {
             "singular": "Movie",
@@ -42,14 +40,11 @@
             "value": "We do not use/collect any kinds of cookies or other telemetry data.💪"
         },
         "links": {
-            "git": "GitHub Repository",
-            "about": "About Project",
-            "report-issue": "Report Issue"
+            "about": "About Project"
         }
     },
     "header": {
-        "searchPlaceholder": "Search Movie or TV Show...",
-        "githubButton": "Star us on {{platform}}!"
+        "searchPlaceholder": "Search Movie or TV Show..."
     },
     "searchdialog": {
         "placeholder": "Search movies or TV shows...",
@@ -71,18 +66,16 @@
         "tabs": {
             "general": "General",
             "history": "History",
-            "playback": "Playback",
-            "omss": "OMSS",
-            "tmdb": "TMDB"
+            "playback": "Playback"
         },
         "general": {
             "title": "General",
             "description": "Basic application preferences",
-            "language": {
+                "language": {
                 "cardlabel": "App Language",
                 "selectlabel": "Available Languages",
                 "placeholder": "Select language",
-                "info": "We are working on translating the app to more languages. If you are interested in helping us out, please consider contributing to our translation efforts at {{gitUrl}}."
+                "info": "We are working on translating the app to more languages. If you are interested in helping us out, please consider contributing to our translation efforts."
             },
             "reset": {
                 "title": "Reset all app data?",
@@ -117,32 +110,7 @@
                 "label": "Autoplay Next Episode",
                 "description": "Automatically play next episode when available"
             }
-        },
-        "omss": {
-            "title": "OMSS Server ({{coreName}})",
-            "description": "Streaming backend configuration",
-            "label": "OMSS ({{coreName}}) API URL",
-            "note": {
-                "title": "CSP Note",
-                "value": "If you are running the app fullstack (i.e. with the fastify backend) and set the VITE_OMSS_API_URL env variable, the website will not be able to make requests to any other site other then TMDB and the OMSS_API_URL you've provided."
-            },
-            "connection": {
-                "connected": "Connected!",
-                "disconnected": "Disconnected!"
-            },
-            "info": "`localhost` means that your OMSS Server is running locally and only for you."
-        },
-        "tmdb": {
-            "title": "TMDB",
-            "description": "TMDB integration",
-            "apiKey": "TMDB API Key (required)",
-            "info": "This can only be changed by rebuilding the application with the new API key",
-            "region": {
-                "cardlabel": "Region",
-                "selectlabel": "Regions",
-                "placeholder": "Select region",
-                "info": "Will change TMDB's \"Trending Now\" Section etc. to your selected Region. {{projectName}} tries to guess your region based on your browser settings. You probably don't have to change this."
-            }
         }
+        
     }
 }

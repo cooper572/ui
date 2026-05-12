@@ -6,13 +6,22 @@ import type { SourceResponse } from "@omss/sdk"
 
 export function useMediaSources(id: string, type: MediaType, season?: number, episode?: number) {
     const { client } = useOmss()
+    const hasValidId = Number.isInteger(Number(id)) && Number(id) > 0
     const [sources, setSources] = useState<SourceResponse | null>(null)
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState<string>()
 
     useEffect(() => {
         async function fetchSources() {
+            if (!hasValidId) {
+                setSources(null)
+                setError("Invalid media id")
+                setIsLoading(false)
+                return
+            }
+
             setIsLoading(true)
+            setError(undefined)
             try {
                 if (type === "movie") {
                     const res = await omssService.getMovieSources(client, id)
@@ -29,7 +38,7 @@ export function useMediaSources(id: string, type: MediaType, season?: number, ep
         }
 
         fetchSources()
-    }, [id, type, season, episode, client])
+    }, [hasValidId, id, type, season, episode, client])
 
     return { sources, isLoading, error }
 }

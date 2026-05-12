@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect } from "react"
 import { Toaster } from "@/components/ui/sonner"
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes, useSearchParams } from "react-router-dom"
 import { useIsMobile } from "@/hooks/use-mobile.ts"
 import Lenis from "lenis"
 
@@ -15,6 +15,23 @@ const Disclaimer = lazy(() => import("@/pages/disclaimer/Disclaimer"))
 
 import AppLayout from "@/app/AppLayout.tsx"
 import BlankLayout from "@/app/BlankLayout"
+
+function RootPage() {
+    const [searchParams] = useSearchParams()
+    const id = searchParams.get("id")
+    const season = searchParams.get("s")
+    const episode = searchParams.get("e")
+
+    if (id) {
+        if (season && episode) {
+            return <Navigate to={`/watch/tv/${id}?s=${season}&e=${episode}`} replace />
+        }
+
+        return <Navigate to={`/watch/movie/${id}`} replace />
+    }
+
+    return <HomePage />
+}
 
 export default function App() {
     const isMobile = useIsMobile()
@@ -42,7 +59,7 @@ export default function App() {
                 <Routes>
                     {/* MAIN APP */}
                     <Route element={<AppLayout />}>
-                        <Route path="/" element={<HomePage />} />
+                        <Route path="/" element={<RootPage />} />
                         <Route path="/movies" element={<MoviesPage />} />
                         <Route path="/shows" element={<ShowsPage />} />
                         <Route path="/settings" element={<Settings />} />

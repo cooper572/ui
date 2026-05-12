@@ -7,7 +7,7 @@ export async function registerHelmetPlugin(app: FastifyInstance) {
             directives: {
                 defaultSrc: ["'self'"],
 
-                connectSrc: ["'self'", "https://api.themoviedb.org", app.config.VITE_STANDALONE ? "*" : (app.config.VITE_OMSS_API_URL ?? "")],
+                connectSrc: ["'self'", "https:", "http:", "wss:", "ws:"],
 
                 imgSrc: ["'self'", "data:", "https://image.tmdb.org"],
 
@@ -26,9 +26,9 @@ export async function registerHelmetPlugin(app: FastifyInstance) {
 
                 frameAncestors: ["'self'"],
 
-                frameSrc: ["'self'", "https://www.youtube-nocookie.com"],
+                frameSrc: ["'self'", "https:"],
 
-                childSrc: ["'self'", "https://www.youtube-nocookie.com"],
+                childSrc: ["'self'", "https:"],
             },
         },
 

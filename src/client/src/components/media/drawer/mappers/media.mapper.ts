@@ -14,7 +14,7 @@ export const mapMedia = (data: MovieDetailsWithAppends<typeof MOVIE_APPENDS> | T
             id: c.id,
             name: c.name,
             character: c.character,
-            profileUrl: c.profile_path ?? `/favicon.svg`,
+        profileUrl: c.profile_path ?? `/icon.png`,
         })) || []
 
     const recommendations: MediaRecommendation[] =
@@ -22,8 +22,8 @@ export const mapMedia = (data: MovieDetailsWithAppends<typeof MOVIE_APPENDS> | T
             id: r.id,
             type: ("media_type" in r ? r.media_type : isMovie ? "movie" : "tv") as "movie" | "tv",
             title: ("title" in r ? r.title : r.name) as string,
-            posterUrl: r.poster_path ?? `/favicon.svg`,
-            backdropUrl: r.backdrop_path ?? `/favicon.svg`,
+        posterUrl: r.poster_path ?? `/icon.png`,
+        backdropUrl: r.backdrop_path ?? `/icon.png`,
             rating: r.vote_average,
         })) || []
 
@@ -37,8 +37,8 @@ export const mapMedia = (data: MovieDetailsWithAppends<typeof MOVIE_APPENDS> | T
         voteCount: data.vote_count,
         runtime: isMovie ? movieData!.runtime : tvData!.episode_run_time?.[0],
         genres: data.genres.map((g) => g.name),
-        backdropUrl: data.backdrop_path ?? "/favicon.svg",
-        posterUrl: data.poster_path ?? "/favicon.svg",
+        backdropUrl: data.backdrop_path ?? "/icon.png",
+        posterUrl: data.poster_path ?? "/icon.png",
         logoUrl: data.images?.logos[0]?.file_path,
         trailer,
         cast,
@@ -48,7 +48,7 @@ export const mapMedia = (data: MovieDetailsWithAppends<typeof MOVIE_APPENDS> | T
             seasonNumber: s.season_number,
             name: s.name,
             episodeCount: s.episode_count,
-            posterUrl: s.poster_path ?? `/favicon.svg`,
+        posterUrl: s.poster_path ?? `/icon.png`,
             airDate: s.air_date ?? "N/A",
         })),
     }
@@ -60,7 +60,7 @@ export const mapEpisodes = (season: TVSeason): MediaEpisode[] => {
         episodeNumber: e.episode_number,
         name: e.name,
         overview: e.overview,
-        stillUrl: e.still_path?.replace("w300", "original") ?? `/favicon.svg`,
+        stillUrl: e.still_path?.replace("w300", "original") ?? `/icon.png`,
         airDate: e.air_date ?? "N/A",
         runtime: e.runtime ?? 0,
     }))

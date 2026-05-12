@@ -6,6 +6,7 @@ import type { MovieDetails, TVSeriesDetails, TVEpisode } from "@lorenzopant/tmdb
 
 export function useMediaDetails(id: string, type: MediaType, season?: number, episode?: number) {
     const tmdb = useTmdb()
+    const hasValidId = Number.isInteger(Number(id)) && Number(id) > 0
     const [details, setDetails] = useState<{
         movie?: MovieDetails
         show?: TVSeriesDetails
@@ -16,7 +17,15 @@ export function useMediaDetails(id: string, type: MediaType, season?: number, ep
 
     useEffect(() => {
         async function fetchDetails() {
+            if (!hasValidId) {
+                setDetails({})
+                setError("Invalid media id")
+                setIsLoading(false)
+                return
+            }
+
             setIsLoading(true)
+            setError(undefined)
             try {
                 if (type === "movie") {
                     const movie = await tmdbService.getMovieDetails(tmdb, id)
@@ -37,7 +46,7 @@ export function useMediaDetails(id: string, type: MediaType, season?: number, ep
         }
 
         fetchDetails()
-    }, [id, type, season, episode, tmdb])
+    }, [hasValidId, id, type, season, episode, tmdb])
 
     return { details, isLoading, error }
 }

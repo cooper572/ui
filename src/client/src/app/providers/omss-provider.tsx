@@ -3,6 +3,11 @@ import { createOmssClient, type OmssClient } from "@omss/sdk"
 import { usePersistentState } from "@/hooks/use-localstorage.ts"
 import { useDebouncedValue } from "@/hooks/use-debounce.ts"
 
+const LEGACY_OMSS_URLS = new Set([
+    "https://pandora-api.cooperrr-yt.workers.dev",
+    "https://player-aj5.pages.dev",
+])
+
 type OmssContextType = {
     client: OmssClient
     baseUrl: string
@@ -14,9 +19,16 @@ const OmssContext = createContext<OmssContextType | null>(null)
 
 export function OmssProvider({ children }: { children: React.ReactNode }) {
     const [baseUrl, setBaseUrl] = usePersistentState<string>("app.omssUrl", import.meta.env.VITE_OMSS_API_URL ?? "")
+    const normalizedBaseUrl = LEGACY_OMSS_URLS.has(baseUrl) ? "" : baseUrl
 
     const [valid, setValid] = useState(false)
-    const debouncedBaseUrl = useDebouncedValue(baseUrl, 500)
+    const debouncedBaseUrl = useDebouncedValue(normalizedBaseUrl, 500)
+
+    useEffect(() => {
+        if (normalizedBaseUrl !== baseUrl) {
+            setBaseUrl("")
+        }
+    }, [baseUrl, normalizedBaseUrl, setBaseUrl])
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search)
@@ -43,6 +55,13 @@ export function OmssProvider({ children }: { children: React.ReactNode }) {
         let cancelled = false
 
         async function validate() {
+            if (!debouncedBaseUrl) {
+                if (!cancelled) {
+                    setValid(false)
+                }
+                return
+            }
+
             try {
                 const result = await client.getHealthStatus()
                 const health = result.data
@@ -69,11 +88,11 @@ export function OmssProvider({ children }: { children: React.ReactNode }) {
     const value = useMemo(
         () => ({
             client,
-            baseUrl,
+            baseUrl: normalizedBaseUrl,
             setBaseUrl,
             valid,
         }),
-        [client, baseUrl, setBaseUrl, valid]
+        [client, normalizedBaseUrl, setBaseUrl, valid]
     )
 
     return <OmssContext.Provider value={value}>{children}</OmssContext.Provider>

@@ -24,7 +24,7 @@ export const MediaCard = React.forwardRef<HTMLDivElement, MediaCardProps>(({ tit
             <CardContent className="p-0">
                 <div className={cn("relative overflow-hidden rounded-md bg-muted", aspectRatio === "portrait" ? "aspect-2/3" : "aspect-video")}>
                     <img
-                        src={imagePath ?? "/favicon.svg"}
+                    src={imagePath ?? "/icon.png"}
                         alt={imageAlt || title}
                         className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.08]"
                         loading="lazy"
