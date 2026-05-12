@@ -8,6 +8,9 @@ i18n.use(HttpBackend)
     .use(initReactI18next)
     .init({
         fallbackLng: "en",
+        supportedLngs: ["en"],
+        nonExplicitSupportedLngs: true,
+        load: "languageOnly",
         debug: import.meta.env.NODE_ENV === "development",
         interpolation: {
             escapeValue: false,
