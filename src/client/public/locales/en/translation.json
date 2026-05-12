@@ -15,8 +15,6 @@
         "slogan": "Your Open Cinema",
         "loading": "Loading",
         "welcome": "Welcome to {{projectName}}!",
-        "opensource": {
-        },
         "movie": {
             "singular": "Movie",
             "plural": "Movies"
@@ -37,10 +35,7 @@
         "tagline": "Your ultimate destination for movies and series. Watch movies and tv shows online for free with no ads or tracking!",
         "cookie-policy": {
             "label": "Cookie Policy",
-            "value": "We do not use/collect any kinds of cookies or other telemetry data.💪"
-        },
-        "links": {
-            "about": "About Project"
+            "value": "We do not use/collect any kinds of cookies or other telemetry data.ðŸ’ª"
         }
     },
     "header": {
@@ -55,7 +50,7 @@
             "movies": "Movies",
             "tv": "TV Shows"
         },
-        "fallbackDate": "—"
+        "fallbackDate": "â€”"
     },
     "watchhistory": {
         "title": "Watch History",
@@ -71,7 +66,7 @@
         "general": {
             "title": "General",
             "description": "Basic application preferences",
-                "language": {
+            "language": {
                 "cardlabel": "App Language",
                 "selectlabel": "Available Languages",
                 "placeholder": "Select language",
@@ -111,6 +106,5 @@
                 "description": "Automatically play next episode when available"
             }
         }
-        
     }
 }

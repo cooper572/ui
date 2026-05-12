@@ -21,7 +21,7 @@ function MediaWatchPageContent({ type }: { type: MediaType }) {
     let embedUrl: string
 
     try {
-        embedUrl = buildPlayerEmbedUrl(id!, type === "tv" ? season : undefined, type === "tv" ? episode : undefined)
+        embedUrl = buildPlayerEmbedUrl(id!, type, type === "tv" ? season : undefined, type === "tv" ? episode : undefined)
     } catch (error) {
         return <ErrorState error={error instanceof Error ? error.message : "Player embed is not configured"} />
     }

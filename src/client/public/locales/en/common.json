@@ -1,7 +1,7 @@
 {
-    "projectName": "CinePro/ui",
-    "authors": "CinePro Foundation",
-    "coreName": "CinePro/Core",
+    "projectName": "Pandora",
+    "authors": "Pandora",
+    "coreName": "Pandora Core",
     "notFound": {
         "title": "404 - Mmmhh... Lost you are",
         "description": "Found, this page is not",
@@ -14,10 +14,6 @@
     "slogan": "Your Open Cinema",
     "loading": "Loading",
     "welcome": "Welcome to {{projectName}}!",
-    "opensource": {
-        "git-url": "https://github.com/cinepro-org/ui",
-        "git-platform": "GitHub"
-    },
     "movie": {
         "singular": "Movie",
         "plural": "Movies"

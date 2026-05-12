@@ -23,6 +23,7 @@ const DEFAULT_TMDB_OPTIONS: TMDBOptions = {
 
 export function AppSettingsProvider({ children }: { children: React.ReactNode }) {
     const standalone = import.meta.env.VITE_STANDALONE === "true"
+    const defaultTmdbApiKey = "81755c2d99c3e560f76f2382c446a8c2"
 
     const [locale, setLocale] = usePersistentState<SupportedLocales>("app.locale", "en")
     const [region, setRegion] = usePersistentState<CountryISO3166_1 | undefined>("app.region", getCountry())
@@ -30,7 +31,8 @@ export function AppSettingsProvider({ children }: { children: React.ReactNode })
     const [showSearch, setShowSearch] = usePersistentState<boolean>("app.showSearch", false)
     const [autoplayNext, setAutoplayNext] = usePersistentState<boolean>("app.autoplayNext", true)
 
-    const [tmdbApiKey, setTmdbApiKey] = usePersistentState<string>("app.tmdbApiKey", import.meta.env.VITE_TMDB_API_KEY)
+    const [storedTmdbApiKey, setTmdbApiKey] = usePersistentState<string>("app.tmdbApiKey", defaultTmdbApiKey)
+    const tmdbApiKey = storedTmdbApiKey.trim() || defaultTmdbApiKey
 
     const [tmdbOptions, setTmdbOptions] = useState<TMDBOptions>({
         ...DEFAULT_TMDB_OPTIONS,

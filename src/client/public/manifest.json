@@ -1,8 +1,8 @@
 {
-    "name": "CinePro",
-    "short_name": "CinePro",
-    "description": "CinePro is a modern, open-source web app for browsing and streaming movies and TV shows directly in your browser without ads and tracking. Ever! Powered by CinePro Core.",
-    "author": "CinePro Foundation",
+    "name": "Pandora",
+    "short_name": "Pandora",
+    "description": "Pandora is a modern web app for browsing and streaming movies and TV shows directly in your browser.",
+    "author": "Pandora",
     "lang": "en-US",
     "dir": "auto",
     "start_url": "/",
@@ -32,9 +32,9 @@
         {
             "name": "Home",
             "short_name": "Home",
-            "description": "Welcome to CinePro!",
+            "description": "Welcome to Pandora!",
             "url": "/",
-            "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+            "icons": [{ "src": "logo.png", "sizes": "247x274", "type": "image/png" }]
         },
         {
             "name": "Browse Movies",
@@ -53,7 +53,7 @@
         {
             "name": "Settings",
             "short_name": "Settings",
-            "description": "Configure CinePro/ui to your liking.",
+            "description": "Configure Pandora to your liking.",
             "url": "/settings",
             "icons": [{ "src": "icon.png", "sizes": "247x274", "type": "image/png" }]
         }
