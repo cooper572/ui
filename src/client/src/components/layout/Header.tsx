@@ -9,7 +9,7 @@ import { useAppSettings } from "@/hooks/use-appsettings.ts"
 import { useIsMobile } from "@/hooks/use-mobile.ts"
 
 export default function Header() {
-    const { t } = useTranslation()
+    const { t } = useTranslation(["header", "common", "settings"])
     const { setShowSearch, showSearch } = useAppSettings()
     const isMobile = useIsMobile()
 
@@ -23,6 +23,11 @@ export default function Header() {
                             <span className="inline-flex h-8 w-auto items-center justify-center overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
                                 <img src="/logo.png" alt="Pandora logo" className="h-full w-auto object-contain" />
                             </span>
+<<<<<<< HEAD
+=======
+
+                            <span className="text-2xl font-semibold tracking-tight text-primary-foreground">{t("common:projectName")}</span>
+>>>>>>> 7528011bf9cfac50ca2d9355f3ef9745299cc7ef
                         </Link>
                         {!isMobile && <SidebarTrigger />}
                     </div>
@@ -33,7 +38,7 @@ export default function Header() {
                             <Button variant="outline" onClick={() => setShowSearch(!showSearch)} className="h-9 w-full justify-between px-3 text-sm">
                                 <span className="inline-flex items-center gap-2 text-muted-foreground">
                                     <LucideSearch className="size-4" />
-                                    <span className="hidden sm:inline">{t("header.searchPlaceholder")}</span>
+                                    <span className="hidden sm:inline">{t("searchPlaceholder")}</span>
                                 </span>
 
                                 <span className="hidden items-center gap-1 md:flex">
@@ -59,7 +64,7 @@ export default function Header() {
                                 <Button asChild variant="outline">
                                     <Link to="/settings" className="inline-flex items-center gap-1.5">
                                         <Settings2 className="size-4" />
-                                        {t("settingsPage.title")}
+                                        {t("settings:title")}
                                     </Link>
                                 </Button>
                             </>
