@@ -10,8 +10,8 @@ export function buildPlayerEmbedUrl(id: string, type: "movie" | "tv", season?: n
     url.searchParams.set("type", type)
 
     if (season !== undefined && episode !== undefined) {
-        url.searchParams.set("s", String(season))
-        url.searchParams.set("e", String(episode))
+        url.searchParams.set("season", String(season))
+        url.searchParams.set("episode", String(episode))
     }
 
     return url.toString()
