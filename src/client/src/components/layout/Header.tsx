@@ -20,10 +20,9 @@ export default function Header() {
                     {/* LEFT */}
                     <div className="flex flex-1 items-center gap-2">
                         <Link to="/" className="group inline-flex items-center gap-2">
-                            <span className="inline-flex h-8 w-auto items-center justify-center overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
-                                <img src="/logo.png" alt="Pandora logo" className="h-full w-auto object-contain" />
+                            <span className="inline-flex h-9 w-auto items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105">
+                                <img src="/logo.png" alt="logo" className="h-full w-auto object-contain" />
                             </span>
-                            <span className="text-2xl font-semibold tracking-tight text-primary-foreground">{t("common:projectName")}</span>
                         </Link>
                         {!isMobile && <SidebarTrigger />}
                     </div>

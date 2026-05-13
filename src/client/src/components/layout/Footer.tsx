@@ -14,8 +14,7 @@ export default function Footer() {
                 <div className="mb-6 grid grid-cols-2 gap-6 md:mb-8 md:grid-cols-2 md:gap-8">
                     <div className="col-span-2 md:col-span-1">
                         <div className="mb-3 flex items-center gap-2 md:mb-4">
-                            <img src="/logo.png" alt={`${t("common:projectName")} logo`} width={40} height={40} />
-                            <span className="text-lg font-bold text-primary md:text-xl">{t("common:projectName")}</span>
+                            <img src="/logo.png" alt="logo" width={80} height={80} />
                         </div>
                         <p className="text-xs text-muted-foreground md:text-sm">{t("tagline")}</p>
                     </div>

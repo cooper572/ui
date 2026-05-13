@@ -69,24 +69,24 @@ export default function Settings() {
             >
                 {/* Tabs header */}
                 <TabsList variant="line">
-                    <TabsTrigger value="general">{t("settingsPage.general.title")}</TabsTrigger>
-                    <TabsTrigger value="history">{t("settingsPage.tabs.history")}</TabsTrigger>
-                    <TabsTrigger value="playback">{t("settingsPage.tabs.playback")}</TabsTrigger>
+                    <TabsTrigger value="general">{t("general.title")}</TabsTrigger>
+                    <TabsTrigger value="history">{t("tabs.history")}</TabsTrigger>
+                    <TabsTrigger value="playback">{t("tabs.playback")}</TabsTrigger>
                 </TabsList>
 
                 {/* ---------------- GENERAL ---------------- */}
                 <TabsContent value="general">
                     <Card>
                         <CardHeader>
-                            <CardTitle>{t("settingsPage.general.title")}</CardTitle>
-                            <CardDescription>{t("settingsPage.general.description")}</CardDescription>
+                            <CardTitle>{t("general.title")}</CardTitle>
+                            <CardDescription>{t("general.description")}</CardDescription>
                         </CardHeader>
 
                         <CardContent className="space-y-6">
                             <div className="mt-3 flex justify-between">
                                 <div>
-                                    <Label>{t("settingsPage.general.language.cardlabel")}</Label>
-                                    <span className="flex pt-1 text-muted-foreground">{t("settingsPage.general.language.info")}</span>
+                                    <Label>{t("general.language.cardlabel")}</Label>
+                                    <span className="flex pt-1 text-muted-foreground">{t("general.language.info")}</span>
                                 </div>
 
                                 <Select value={locale} onValueChange={(value) => setLocale(value as SupportedLocales)}>

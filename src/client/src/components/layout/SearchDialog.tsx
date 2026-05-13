@@ -65,27 +65,6 @@ export function SearchDialog() {
         return () => window.removeEventListener("keydown", handleKeyDown)
     }, [showSearch, setShowSearch])
 
-    // sync URL params
-    useEffect(() => {
-        if (!showSearch) return
-
-        const params = new URLSearchParams(searchParams)
-
-        if (query) {
-            params.set("q", query)
-        } else {
-            params.delete("q")
-        }
-
-        if (filter !== "all") {
-            params.set("type", filter)
-        } else {
-            params.delete("type")
-        }
-
-        setSearchParams(params, { replace: true })
-    }, [query, filter, showSearch, setSearchParams, searchParams])
-
     // debounced search
     useEffect(() => {
         if (!debouncedQuery) {
@@ -190,10 +169,6 @@ export function SearchDialog() {
             open={showSearch}
             onOpenChange={(o) => {
                 setShowSearch(o)
-
-                if (!o) {
-                    setSearchParams({}, { replace: true })
-                }
             }}
             className="lenis-stopped lenis-disabled max-h-[80vh] w-[95vw] max-w-180 transition-transform sm:w-150 sm:scale-[1.05] md:w-180 md:scale-[1.20]"
         >
