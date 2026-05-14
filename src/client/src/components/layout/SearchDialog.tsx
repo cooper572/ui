@@ -8,6 +8,7 @@ import { useSearchParams } from "react-router-dom"
 import { LucideClapperboard, LucideFilter, LucidePlay, LucideTv, Star } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useAppSettings } from "@/hooks/use-appsettings.ts"
+import Image from "@/components/ui/image"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group.tsx"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu.tsx"
 import { useMediaDrawer } from "@/components/media/drawer/hooks/useMediaDrawer.ts"
@@ -141,7 +142,7 @@ export function SearchDialog() {
         return (
             <CommandItem key={`${item.media_type}-${item.id}`} value={`${title}-${item.media_type}-${item.id}`} onSelect={() => handleSelect(item)} className="flex items-center gap-3">
                 {image ? (
-                    <img src={image} alt={title} className="h-14 w-10 shrink-0 rounded-md object-cover" />
+                    <Image src={image} alt={title} className="h-14 w-10 shrink-0 rounded-md object-cover" />
                 ) : (
                     <div className="flex h-14 w-10 items-center justify-center rounded-md bg-muted">{icon}</div>
                 )}

@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Card, CardContent } from "@/components/ui/card.tsx"
 import { cn } from "@/lib/utils.ts"
+import Image from "@/components/ui/image"
 import { Star } from "lucide-react"
 import { useMediaDrawer } from "@/components/media/drawer/hooks/useMediaDrawer"
 
@@ -23,8 +24,8 @@ export const MediaCard = React.forwardRef<HTMLDivElement, MediaCardProps>(({ tit
         <Card ref={ref} className={cn("group overflow-hidden border-none py-0 transition-all", className)} onClick={() => open({ type: type, id: id })}>
             <CardContent className="p-0">
                 <div className={cn("relative overflow-hidden rounded-md bg-muted", aspectRatio === "portrait" ? "aspect-2/3" : "aspect-video")}>
-                    <img
-                    src={imagePath ?? "/icon.png"}
+                    <Image
+                        src={imagePath ?? "/icon.png"}
                         alt={imageAlt || title}
                         className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.08]"
                         loading="lazy"
