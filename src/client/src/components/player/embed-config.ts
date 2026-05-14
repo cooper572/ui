@@ -1,4 +1,4 @@
-const PLAYER_EMBED_BASE_URL = "https://vyla-player.pages.dev/"
+const PLAYER_EMBED_BASE_URL = "https://pandora-player.cooperrr-yt.workers.dev/"
 
 export function buildPlayerEmbedUrl(id: string, type: "movie" | "tv", season?: number, episode?: number) {
     if (!PLAYER_EMBED_BASE_URL || PLAYER_EMBED_BASE_URL.includes("your-site.com")) {
