@@ -5,6 +5,7 @@ import { HistoryContext } from "@/hooks/use-history.ts"
 
 declare type TVShowTitleType = {
     tvshowtitle: string
+    showPosterPath?: string | null
 }
 
 export type HistoryItem =

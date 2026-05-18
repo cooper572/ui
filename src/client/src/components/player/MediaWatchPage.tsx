@@ -41,6 +41,7 @@ function MediaWatchPageContent({ type }: { type: MediaType }) {
                     addEpisode({
                         ...episodeDetails,
                         tvshowtitle: show.name,
+                        showPosterPath: show.poster_path,
                     })
                 }
             } catch {
