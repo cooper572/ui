@@ -23,6 +23,7 @@ export type HistoryContextType = {
     history: HistoryItem[]
     addMovie: (movie: MovieDetails) => void
     addEpisode: (episode: TVEpisodeItem & TVShowTitleType) => void
+    getShowResumeEpisode: (showId: number) => (TVEpisodeItem & TVShowTitleType) | null
     remove: (item: HistoryItem) => void
     clear: () => void
 }
@@ -64,6 +65,11 @@ export function HistoryProvider({ children }: { children: React.ReactNode }) {
             addItems([{ kind: "tvShow", item: episode }])
         }
 
+        const getShowResumeEpisode = (showId: number) => {
+            const match = history.find((entry) => entry.kind === "tvShow" && entry.item.show_id === showId)
+            return match?.kind === "tvShow" ? match.item : null
+        }
+
         const remove = (item: HistoryItem) => {
             setHistory((current) => current.filter((i) => getHistoryKey(i) !== getHistoryKey(item)))
         }
@@ -76,6 +82,7 @@ export function HistoryProvider({ children }: { children: React.ReactNode }) {
             history,
             addMovie,
             addEpisode,
+            getShowResumeEpisode,
             remove,
             clear,
         }

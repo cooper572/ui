@@ -47,14 +47,19 @@ export function HomePage() {
             </div>
 
             <section className="flex flex-col gap-8 bg-background p-8">
-                <div className="space-y-4">
-                    <h2 className="text-2xl font-semibold">Watch Again</h2>
-                    {history.length > 0 ? (
-                        <MediaRail<HistoryItem> title={null} fetcher={async () => history} getKey={(entry) => (entry.kind === "movie" ? `movie-${entry.item.id}` : `tv-${entry.item.show_id}-${entry.item.season_number}-${entry.item.episode_number}`)} renderItem={renderHistoryItem} />
-                    ) : (
+                {history.length > 0 ? (
+                    <MediaRail<HistoryItem>
+                        title="Watch Again"
+                        fetcher={async () => history}
+                        getKey={(entry) => (entry.kind === "movie" ? `movie-${entry.item.id}` : `tv-${entry.item.show_id}-${entry.item.season_number}-${entry.item.episode_number}`)}
+                        renderItem={renderHistoryItem}
+                    />
+                ) : (
+                    <div className="space-y-4">
+                        <h2 className="text-2xl font-semibold">Watch Again</h2>
                         <p className="text-sm text-muted-foreground">Your recently watched movies and episodes will show up here.</p>
-                    )}
-                </div>
+                    </div>
+                )}
 
                 <TvRail title="Trending TV Shows" fetcher={() => tmdb.tv_lists.popular({})} />
 

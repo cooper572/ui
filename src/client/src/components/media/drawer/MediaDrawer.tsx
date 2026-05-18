@@ -12,6 +12,7 @@ import { formatRuntime } from "@/components/media/drawer/mappers/media.mapper.ts
 import { cn } from "@/lib/utils.ts"
 import { useNavigate } from "react-router-dom"
 import { useMediaDrawer } from "@/components/media/drawer/hooks/useMediaDrawer.ts"
+import { useHistory } from "@/hooks/use-history"
 
 interface MediaDrawerProps {
     payload: MediaDrawerPayload
@@ -24,13 +25,20 @@ interface MediaDrawerProps {
 export function MediaDrawer({ payload, isOpen, onClose, className }: MediaDrawerProps) {
     const { data, isLoading } = useMediaDetails(payload.type, payload.id)
     const { closeAll } = useMediaDrawer()
+    const { getShowResumeEpisode } = useHistory()
 
     const navigate = useNavigate()
 
     const handlePlay = () => {
         if (!data) return
 
-        const path = payload.type === "movie" ? `/watch/movie/${data.id}` : `/watch/tv/${data.id}`
+        const resumeEpisode = payload.type === "tv" ? getShowResumeEpisode(data.id) : null
+        const path =
+            payload.type === "movie"
+                ? `/watch/movie/${data.id}`
+                : resumeEpisode
+                  ? `/watch/tv/${data.id}?s=${resumeEpisode.season_number}&e=${resumeEpisode.episode_number}`
+                  : `/watch/tv/${data.id}?s=1&e=1`
 
         closeAll()
 
