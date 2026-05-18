@@ -15,10 +15,12 @@ function deserializeMedia(value: string): MediaDrawerPayload | null {
 
     if (!type || !id) return null
     if (type !== "movie" && type !== "tv") return null
+    const numericId = Number(id)
+    if (!Number.isFinite(numericId) || numericId <= 0) return null
 
     return {
         type,
-        id: Number(id),
+        id: numericId,
     } as MediaDrawerPayload
 }
 
@@ -33,6 +35,7 @@ export function MediaDrawerProvider({ children }: { children: React.ReactNode })
      * OPEN
      */
     const open = useCallback((payload: MediaDrawerPayload) => {
+        if (!Number.isFinite(payload.id) || payload.id <= 0) return
         setStack((prev) => [...prev, payload])
     }, [])
 

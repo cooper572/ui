@@ -26,6 +26,7 @@ export function HomePage() {
         if (exists) return items
 
         if (entry.kind === "movie") {
+            if (!Number.isFinite(entry.item.id) || entry.item.id <= 0) return items
             items.push({
                 id: entry.item.id,
                 type: "movie",
@@ -38,6 +39,7 @@ export function HomePage() {
             return items
         }
 
+        if (!Number.isFinite(entry.item.show_id) || entry.item.show_id <= 0) return items
         items.push({
             id: entry.item.show_id,
             type: "tv",

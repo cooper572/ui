@@ -14,7 +14,7 @@ export default function Footer() {
                 <div className="mb-6 grid grid-cols-2 gap-6 md:mb-8 md:grid-cols-2 md:gap-8">
                     <div className="col-span-2 md:col-span-1">
                         <div className="mb-3 flex items-center gap-2 md:mb-4">
-                            <img src="/logo.png" alt="logo" width={80} height={80} />
+                            <img src="/logo.png" alt="pandora logo" className="h-16 w-auto sm:h-20" />
                         </div>
                         <p className="text-xs text-muted-foreground md:text-sm">{t("tagline")}</p>
                     </div>
@@ -45,7 +45,7 @@ export default function Footer() {
 
                 <div className="flex flex-col items-center justify-between md:flex-row">
                     <p className="text-center text-xs text-muted-foreground md:text-left md:text-sm">
-                        &copy; {new Date().getFullYear()} {t("projectName")} by {t("authors")}. All rights reserved.
+                        &copy; {new Date().getFullYear()} pandora by {t("authors")}. All rights reserved.
                     </p>
 
                     <div className="z-1 mt-4 flex flex-wrap justify-center gap-4 md:mt-0">

@@ -9,8 +9,16 @@ export function useMediaDetails(type: "movie" | "tv", id: number) {
     const [data, setData] = useState<MediaNormalized | null>(null)
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState<Error | null>(null)
+    const hasValidId = Number.isFinite(id) && id > 0
 
     const fetchDetails = useCallback(async () => {
+        if (!hasValidId) {
+            setData(null)
+            setError(new Error("Invalid media id"))
+            setIsLoading(false)
+            return
+        }
+
         setIsLoading(true)
         setError(null)
         try {
@@ -21,7 +29,7 @@ export function useMediaDetails(type: "movie" | "tv", id: number) {
         } finally {
             setIsLoading(false)
         }
-    }, [tmdb, type, id])
+    }, [hasValidId, tmdb, type, id])
 
     useEffect(() => {
         // eslint-disable-next-line react-hooks/set-state-in-effect
