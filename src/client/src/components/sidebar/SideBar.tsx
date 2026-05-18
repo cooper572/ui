@@ -47,11 +47,11 @@ export default function SideBar() {
             {/* Header */}
             <SidebarHeader>
                 <div onClick={() => clickHandler("/")} className="flex cursor-pointer items-center gap-3 px-2 py-2">
-                    <img src="/ico.ico" alt="Logo" className="h-10" />
+                    <img src="/logo.png" alt={t("projectName")} className="h-10 w-auto object-contain" />
 
-                    <h1 className="text-2xl font-bold">{t("projectName")}</h1>
-
-                    <SidebarTrigger />
+                    <div className="ml-auto">
+                        <SidebarTrigger />
+                    </div>
                 </div>
             </SidebarHeader>
 
@@ -104,7 +104,13 @@ export default function SideBar() {
                                         return (
                                             <SidebarMenuItem key={key}>
                                                 <SidebarMenuButton
-                                                    onClick={() => clickHandler(entry.kind === "movie" ? `/movie/${entry.item.id}` : `/show/${entry.item.show_id}`)}
+                                                    onClick={() =>
+                                                        clickHandler(
+                                                            entry.kind === "movie"
+                                                                ? `/watch/movie/${entry.item.id}`
+                                                                : `/watch/tv/${entry.item.show_id}?s=${entry.item.season_number}&e=${entry.item.episode_number}`
+                                                        )
+                                                    }
                                                     className="flex justify-between hover:bg-muted/50"
                                                 >
                                                     <span className="truncate">{label}</span>

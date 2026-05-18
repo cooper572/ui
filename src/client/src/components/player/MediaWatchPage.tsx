@@ -4,15 +4,56 @@ import type { MediaType } from "./types/media.types"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft } from "lucide-react"
 import { buildPlayerEmbedUrl } from "./embed-config"
+import { useEffect } from "react"
+import { useTmdb } from "@/hooks/use-tmdb"
+import { tmdbService } from "./services/tmdb.service"
+import { useHistory } from "@/hooks/use-history"
 
 function MediaWatchPageContent({ type }: { type: MediaType }) {
     const { id } = useParams<{ id: string }>()
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
+    const tmdb = useTmdb()
+    const { addEpisode, addMovie } = useHistory()
 
     const season = searchParams.get("s") ? parseInt(searchParams.get("s")!) : type === "tv" ? 1 : undefined
     const episode = searchParams.get("e") ? parseInt(searchParams.get("e")!) : type === "tv" ? 1 : undefined
     const hasValidId = Number.isInteger(Number(id)) && Number(id) > 0
+
+    useEffect(() => {
+        if (!hasValidId || !id) return
+
+        let isCancelled = false
+
+        async function syncHistory() {
+            try {
+                if (type === "movie") {
+                    const movie = await tmdbService.getMovieDetails(tmdb, id)
+                    if (!isCancelled) addMovie(movie)
+                    return
+                }
+
+                if (season === undefined || episode === undefined) return
+
+                const [show, episodeDetails] = await Promise.all([tmdbService.getTvDetails(tmdb, id), tmdbService.getEpisodeDetails(tmdb, id, season, episode)])
+
+                if (!isCancelled) {
+                    addEpisode({
+                        ...episodeDetails,
+                        tvshowtitle: show.name,
+                    })
+                }
+            } catch {
+                // Ignore history sync failures so playback still works.
+            }
+        }
+
+        syncHistory()
+
+        return () => {
+            isCancelled = true
+        }
+    }, [addEpisode, addMovie, episode, hasValidId, id, season, tmdb, type])
 
     if (!hasValidId) {
         return <ErrorState error="Invalid media id" />
