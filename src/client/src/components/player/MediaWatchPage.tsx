@@ -82,7 +82,6 @@ function MediaWatchPageContent({ type }: { type: MediaType }) {
                     title="Embedded Player"
                     className="h-full w-full border-0"
                     allow="autoplay; fullscreen; picture-in-picture"
-                    allowFullScreen
                     referrerPolicy="origin"
                 />
             </div>

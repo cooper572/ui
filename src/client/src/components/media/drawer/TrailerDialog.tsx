@@ -30,7 +30,6 @@ export const TrailerDialog: React.FC<TrailerDialogProps> = ({ trailerId, title }
                         src={`https://www.youtube-nocookie.com/embed/${trailerId}?autoplay=1`}
                         title={`${title} Trailer`}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
                     />
                 </div>
             </DialogContent>
